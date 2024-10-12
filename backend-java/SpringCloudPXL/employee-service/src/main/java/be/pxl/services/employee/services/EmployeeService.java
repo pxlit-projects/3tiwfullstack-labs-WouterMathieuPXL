@@ -1,6 +1,8 @@
 package be.pxl.services.employee.services;
 
+import be.pxl.services.employee.client.NotificationClient;
 import be.pxl.services.employee.domain.Employee;
+import be.pxl.services.employee.domain.NotificationRequest;
 import be.pxl.services.employee.domain.dto.EmployeeRequest;
 import be.pxl.services.employee.domain.dto.EmployeeResponse;
 import be.pxl.services.employee.repository.EmployeeRepository;
@@ -14,6 +16,7 @@ import java.util.List;
 public class EmployeeService implements IEmployeeService {
 
     private final EmployeeRepository employeeRepository;
+    private final NotificationClient notificationClient;
 
     @Override
     public List<EmployeeResponse> getAllEmployees() {
@@ -31,6 +34,12 @@ public class EmployeeService implements IEmployeeService {
                 .organizationId(employeeRequest.getOrganizationId())
                 .build();
         employeeRepository.save(employee);
+
+        NotificationRequest notificationRequest = NotificationRequest.builder()
+                .message("Employee created")
+                .sender("Wouter")
+                .build();
+        notificationClient.sendNotification(notificationRequest);
     }
 
     @Override
