@@ -1,4 +1,4 @@
-package be.pxl.services.employee;
+package be.pxl.services;
 
 import be.pxl.services.domain.Employee;
 import be.pxl.services.repository.EmployeeRepository;
