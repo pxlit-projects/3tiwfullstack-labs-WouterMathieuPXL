@@ -1,9 +1,8 @@
 package be.pxl.services.employee;
 
-import be.pxl.services.employee.domain.Employee;
-import be.pxl.services.employee.repository.EmployeeRepository;
+import be.pxl.services.domain.Employee;
+import be.pxl.services.repository.EmployeeRepository;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.junit.Before;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
