@@ -22,6 +22,7 @@ public class EmployeeController {
     private final IEmployeeService employeeService;
 
     @GetMapping
+    @ResponseStatus(HttpStatus.OK)
     public ResponseEntity findAll() {
         log.info("Request to get all employees");
         return new ResponseEntity(employeeService.getAllEmployees(), HttpStatus.OK);
